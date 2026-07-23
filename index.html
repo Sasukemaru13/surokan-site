@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スロ幹 — スローライフを求めて適当な連盟に入ったらいつの間にか大型連盟の幹部になっていた件</title>
+  <meta name="description" content="Discord連載小説「スロ幹」の公式ファンサイト。あらすじ・キャラクター・人物相関図を公開。">
+
+  <!-- OGP / Twitter Card -->
+  <meta property="og:title" content="スロ幹 — スローライフを求めて適当な連盟に入ったらいつの間にか大型連盟の幹部になっていた件">
+  <meta property="og:description" content="Discord連載小説「スロ幹」の公式ファンサイト。あらすじ・キャラクター・人物相関図を公開。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://hisamaru13.github.io/surokan-site/assets/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://hisamaru13.github.io/surokan-site/assets/ogp.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        <img src="assets/logo.png" alt="スロ幹" class="header-logo-img">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <ul>
+          <li><a href="index.html" aria-current="page">TOP</a></li>
+          <li><a href="story.html">STORY</a></li>
+          <li><a href="character.html">CHARACTER</a></li>
+          <li><a href="chart.html">CHART</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ヒーロー（全画面） -->
+    <section class="hero">
+      <!-- アンバーパーティクル（CSS only） -->
+      <div class="hero-particle-wrap" aria-hidden="true"></div>
+      <!-- キービジュアル（Codex制作。PC=横版v2 / スマホ=縦版v1） -->
+      <picture>
+        <source media="(max-width: 768px)" srcset="assets/kv_mobile.png">
+        <img src="assets/kv.png" alt="キービジュアル" class="hero-kv">
+      </picture>
+      <div class="hero-kv-shade" aria-hidden="true"></div>
+
+      <!-- ゴースト英字（タイトル背後） -->
+      <span class="hero-ghost" aria-hidden="true">SUROKANN</span>
+
+      <div class="hero-content">
+        <div class="hero-title-block">
+          <h1 class="hero-title-main hero-title-logo">
+            <img src="assets/logo.png" alt="スローライフを求めて適当な連盟に入ったらいつの間にか大型連盟の幹部になっていた件" class="hero-logo-img">
+          </h1>
+          <!-- .hero-abbr 削除済み。ロゴ画像がタイトルを担う -->
+          <p class="hero-subtitle">Discord Serial Novel — Fan Site</p>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint" aria-hidden="true">SCROLL</div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="news-section">
+      <!-- ゴースト文字 -->
+      <span class="section-ghost" aria-hidden="true">NEWS</span>
+
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="section-heading fade-in">
+          <span class="section-heading-en">LATEST</span>
+          <span>NEWS</span>
+        </div>
+        <ul class="news-list">
+          <li class="fade-in fade-in-delay-1">
+            <span class="news-date">2026.07.23</span>
+            <span class="news-chip news-chip--info">INFO</span>
+            <span>サイト準備中</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- コンテンツ誘導 -->
+    <section class="nav-menu-section">
+      <span class="section-ghost" aria-hidden="true">CONTENTS</span>
+
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="section-heading fade-in">
+          <span class="section-heading-en">MENU</span>
+          <span>CONTENTS</span>
+        </div>
+      </div>
+
+      <div style="position: relative; z-index: 1; width: min(1140px, 92%); margin-inline: auto;">
+        <div class="nav-menu-grid">
+
+          <a href="story.html" class="nav-menu-item nav-menu-item--story fade-in fade-in-delay-1">
+            <!-- ごっさん立ち絵（主人公＝物語の顔） -->
+            <img src="assets/chara_01.png" alt="" class="nav-menu-chara nav-menu-chara--story" aria-hidden="true">
+            <span class="nav-menu-item-ghost" aria-hidden="true" style="position:relative;z-index:2;">STORY</span>
+            <span class="nav-menu-item-no" style="position:relative;z-index:2;">01</span>
+            <span class="nav-menu-item-en" style="position:relative;z-index:2;">STORY</span>
+            <p class="nav-menu-item-ja" style="position:relative;z-index:2;">あらすじ</p>
+            <p class="nav-menu-item-desc" style="position:relative;z-index:2;">物語のあらすじと各章のダイジェストを掲載。</p>
+            <span class="nav-menu-item-arrow" style="position:relative;z-index:2;">VIEW &rarr;</span>
+          </a>
+
+          <a href="character.html" class="nav-menu-item nav-menu-item--character fade-in fade-in-delay-2">
+            <!-- ルー子立ち絵（表情が立つ） -->
+            <img src="assets/chara_04.png" alt="" class="nav-menu-chara nav-menu-chara--character" aria-hidden="true">
+            <span class="nav-menu-item-ghost" aria-hidden="true" style="position:relative;z-index:2;">CHARA</span>
+            <span class="nav-menu-item-no" style="position:relative;z-index:2;">02</span>
+            <span class="nav-menu-item-en" style="position:relative;z-index:2;">CHARACTER</span>
+            <p class="nav-menu-item-ja" style="position:relative;z-index:2;">登場人物</p>
+            <p class="nav-menu-item-desc" style="position:relative;z-index:2;">個性あふれるキャラクターたちを紹介。</p>
+            <span class="nav-menu-item-arrow" style="position:relative;z-index:2;">VIEW &rarr;</span>
+          </a>
+
+          <a href="chart.html" class="nav-menu-item nav-menu-item--chart fade-in fade-in-delay-3">
+            <!-- びしゅ立ち絵（盟主＝組織の顔） -->
+            <img src="assets/chara_03.png" alt="" class="nav-menu-chara nav-menu-chara--chart" aria-hidden="true">
+            <span class="nav-menu-item-ghost" aria-hidden="true" style="position:relative;z-index:2;">CHART</span>
+            <span class="nav-menu-item-no" style="position:relative;z-index:2;">03</span>
+            <span class="nav-menu-item-en" style="position:relative;z-index:2;">CHART</span>
+            <p class="nav-menu-item-ja" style="position:relative;z-index:2;">人物相関図</p>
+            <p class="nav-menu-item-desc" style="position:relative;z-index:2;">登場人物の関係性を図で整理。</p>
+            <span class="nav-menu-item-arrow" style="position:relative;z-index:2;">VIEW &rarr;</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- キャラクター顔ならび帯 -->
+    <section class="face-strip-section">
+      <span class="section-ghost" aria-hidden="true">CHARACTERS</span>
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="section-heading fade-in">
+          <span class="section-heading-en">CAST</span>
+          <span>CHARACTERS</span>
+        </div>
+        <div class="face-strip fade-in fade-in-delay-1">
+          <a href="character.html#chara-01" class="face-item" aria-label="ごっさんの紹介へ">
+            <div class="face-circle"><img src="assets/bust_01.png" alt="ごっさん"></div>
+            <span class="face-name">ごっさん</span>
+          </a>
+          <a href="character.html#chara-02" class="face-item" aria-label="レイの紹介へ">
+            <div class="face-circle"><img src="assets/bust_02.png" alt="レイ"></div>
+            <span class="face-name">レイ</span>
+          </a>
+          <a href="character.html#chara-03" class="face-item" aria-label="びしゅの紹介へ">
+            <div class="face-circle"><img src="assets/bust_03.png" alt="びしゅ"></div>
+            <span class="face-name">びしゅ</span>
+          </a>
+          <a href="character.html#chara-04" class="face-item" aria-label="ルー子の紹介へ">
+            <div class="face-circle"><img src="assets/bust_04.png" alt="ルー子"></div>
+            <span class="face-name">ルー子</span>
+          </a>
+          <a href="character.html#chara-05" class="face-item" aria-label="三和の紹介へ">
+            <div class="face-circle"><img src="assets/bust_05.png" alt="三和"></div>
+            <span class="face-name">三和</span>
+          </a>
+          <a href="character.html#chara-06" class="face-item" aria-label="デリの紹介へ">
+            <div class="face-circle"><img src="assets/bust_06.png" alt="デリ"></div>
+            <span class="face-name">デリ</span>
+          </a>
+          <a href="character.html#chara-07" class="face-item" aria-label="花りりの紹介へ">
+            <div class="face-circle"><img src="assets/bust_07.png" alt="花りり"></div>
+            <span class="face-name">花りり</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <a href="index.html">
+          <img src="assets/logo.png" alt="スロ幹" class="footer-logo-img">
+        </a>
+      </div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="story.html">STORY</a></li>
+          <li><a href="character.html">CHARACTER</a></li>
+          <li><a href="chart.html">CHART</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">&copy; スロ幹製作委員会</p>
+    </div>
+  </footer>
+
+  <script>
+    // ハンバーガーメニュー
+    const toggle = document.getElementById('navToggle');
+    const nav    = document.getElementById('siteNav');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // スクロールフェードイン（IntersectionObserver）
+    const fadeEls = document.querySelectorAll('.fade-in');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      fadeEls.forEach(el => observer.observe(el));
+    } else {
+      // フォールバック: 全表示
+      fadeEls.forEach(el => el.classList.add('is-visible'));
+    }
+  </script>
+
+</body>
+</html>

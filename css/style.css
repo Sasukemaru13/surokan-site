@@ -1,0 +1,1610 @@
+/* ================================================
+   スロ幹 ファンサイト 共通スタイル v3
+   カラーパレット:
+     --primary   : #2A6EBB (ミッドナイトブルー)
+     --accent    : #F4A820 (アンバーゴールド)
+     --bg        : #0D1321 (ダークネイビー)
+     --surface   : #162032
+     --surface2  : #1E2E44
+     --text      : #E8EDF4
+     --text-muted: #7A94B0
+   ================================================ */
+
+/* ---- リセット & ベース ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary:    #2A6EBB;
+  --accent:     #F4A820;
+  --bg:         #0D1321;
+  --surface:    #162032;
+  --surface2:   #1E2E44;
+  --text:       #E8EDF4;
+  --text-muted: #7A94B0;
+  --gold-line:  rgba(244, 168, 32, 0.35);
+
+  --font-ja:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'YuGothic', sans-serif;
+  --font-en:  'Anton', 'Arial Black', sans-serif;
+
+  --nav-h: 64px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-ja);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---- レイアウト共通 ---- */
+.container {
+  width: min(1140px, 92%);
+  margin-inline: auto;
+}
+
+main { flex: 1; }
+
+/* ================================================
+   ヘッダー / ナビゲーション
+   ボーダーなし — 背景ブラーだけで分離
+   ================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 19, 33, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  /* border-bottom を廃止。ブラーと透明度差で十分 */
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-h);
+  gap: 24px;
+}
+
+.site-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.site-logo .logo-main {
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.site-logo .logo-abbr {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+}
+
+.site-nav a {
+  display: block;
+  padding: 6px 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-nav a[aria-current="page"]::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 2px;
+  border-radius: 1px;
+}
+
+/* ---- ハンバーガー（スマホ） ---- */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+/* ================================================
+   NEWSカテゴリチップ
+   ================================================ */
+.news-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  font-family: var(--font-en);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  border-radius: 2px;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+
+.news-chip--info {
+  background: rgba(42, 110, 187, 0.55);
+  color: #d0e4ff;
+}
+
+.news-chip--update {
+  background: rgba(244, 168, 32, 0.55);
+  color: #1a1200;
+}
+
+.news-chip--release {
+  background: rgba(160, 60, 180, 0.55);
+  color: #f0d8ff;
+}
+
+/* ================================================
+   TOPページ: キャラクター顔ならび帯
+   ================================================ */
+.face-strip-section {
+  position: relative;
+  padding: 80px 0 100px;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    #0f1a2e 0%,
+    var(--surface) 8%,
+    var(--surface) 92%,
+    #0a1120 100%
+  );
+  clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+}
+
+.face-strip {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.face-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.face-item:hover {
+  transform: translateY(-8px);
+  text-decoration: none;
+}
+
+.face-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  /* アンバーのリンググロー */
+  box-shadow:
+    0 0 0 2px rgba(244, 168, 32, 0.35),
+    0 0 18px rgba(244, 168, 32, 0.15),
+    inset 0 0 12px rgba(13, 19, 33, 0.4);
+  transition: box-shadow 0.28s;
+  background: var(--surface2);
+}
+
+.face-item:hover .face-circle {
+  box-shadow:
+    0 0 0 2px rgba(244, 168, 32, 0.75),
+    0 0 28px rgba(244, 168, 32, 0.35),
+    inset 0 0 12px rgba(13, 19, 33, 0.4);
+}
+
+.face-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.face-name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  transition: color 0.25s;
+}
+
+.face-item:hover .face-name {
+  color: var(--accent);
+}
+
+/* ================================================
+   フッター（3段構成: ロゴ／ナビ／コピーライト）
+   ================================================ */
+.site-footer {
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    #090e1c 0%,
+    #050810 100%
+  );
+  /* 上端の斜め clip */
+  clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+  padding-top: 56px;
+}
+
+.footer-inner {
+  width: min(1140px, 92%);
+  margin-inline: auto;
+  padding: 56px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.footer-logo-img {
+  display: block;
+  height: 52px;
+  width: auto;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 16px rgba(244, 168, 32, 0.25));
+  transition: opacity 0.25s, filter 0.25s;
+}
+
+.footer-logo a:hover .footer-logo-img {
+  opacity: 1;
+  filter: drop-shadow(0 0 24px rgba(244, 168, 32, 0.5));
+}
+
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-nav a {
+  display: block;
+  padding: 6px 18px;
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(122, 148, 176, 0.5);
+  letter-spacing: 0.08em;
+}
+
+/* ================================================
+   スクロールフェードイン（JS連動）
+   ================================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+
+/* ================================================
+   セクション共通：ゴースト見出し文字
+   ================================================ */
+.section-ghost {
+  font-family: var(--font-en);
+  font-size: clamp(5rem, 16vw, 12rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.025);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  /* 横はみ出しによるスクロール防止。親の overflow:hidden と連動 */
+  overflow: hidden;
+}
+
+/* セクション見出し（罫線なし・スペースで分離） */
+.section-heading {
+  font-family: var(--font-en);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 56px;
+}
+
+/* 大見出し（"CONTENTS" "NEWS" 等）にゴールドグラデ */
+.section-heading > span:not(.section-heading-en) {
+  background: linear-gradient(
+    105deg,
+    #F4A820 0%,
+    #FFD97A 42%,
+    #F4A820 68%,
+    #C47D10 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-heading-en {
+  font-family: var(--font-en);
+  font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+  letter-spacing: 0.28em;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+/* ================================================
+   ヒーロー: アンバーパーティクル（CSS only・JS不要）
+   ================================================ */
+/* .hero-particles は index.html に追加しない —
+   代わりに .hero の ::before が glow で、::after が lines 。
+   パーティクルは個別 <span> ではなく .hero の多重 box-shadow で実現する。
+   ここでは専用の疑似クラスを使わず、
+   後述の .hero-particle-wrap にのみ適用する。 */
+
+@keyframes particle-float {
+  0%   { transform: translateY(0)   scale(1);   opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 0.6; }
+  100% { transform: translateY(-80px) scale(0.6); opacity: 0; }
+}
+
+.hero-particle-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* 8粒のパーティクルを擬似要素＋アニメーションで実現 */
+.hero-particle-wrap::before,
+.hero-particle-wrap::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(244, 168, 32, 0.55);
+  filter: blur(1.5px);
+  animation: particle-float 5s ease-in infinite;
+}
+
+/* 左寄りの粒群 */
+.hero-particle-wrap::before {
+  width: 4px; height: 4px;
+  left: 22%; bottom: 28%;
+  animation-duration: 6s;
+  animation-delay: 0s;
+  box-shadow:
+    40px  60px 0 1px rgba(244,168,32,0.45),
+    -20px 120px 0 2px rgba(244,168,32,0.30),
+     80px  20px 0 1px rgba(244,168,32,0.55),
+    -50px  80px 0 1px rgba(244,168,32,0.35);
+}
+
+/* 右寄りの粒群 */
+.hero-particle-wrap::after {
+  width: 3px; height: 3px;
+  right: 18%; bottom: 22%;
+  animation-duration: 7s;
+  animation-delay: 2.5s;
+  box-shadow:
+    -30px  50px 0 2px rgba(244,168,32,0.40),
+     20px 100px 0 1px rgba(244,168,32,0.50),
+    -60px  20px 0 1px rgba(244,168,32,0.30),
+     10px  70px 0 2px rgba(244,168,32,0.45);
+}
+
+/* ================================================
+   TOPページ: ヒーロー（全画面）
+   ================================================ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, #162A50 0%, #0D1321 70%);
+}
+
+/* 光の放射グラデーション（揺らぎアニメ） */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 50%,
+      rgba(42, 110, 187, 0.18) 0%,
+      transparent 70%);
+  animation: hero-glow 6s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes hero-glow {
+  0%   { opacity: 0.6; transform: scale(1) translateY(0); }
+  100% { opacity: 1;   transform: scale(1.08) translateY(-12px); }
+}
+
+/* 斜め細線パターン */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      -52deg,
+      transparent,
+      transparent 48px,
+      rgba(42, 110, 187, 0.04) 48px,
+      rgba(42, 110, 187, 0.04) 50px
+    );
+  pointer-events: none;
+}
+
+/* キービジュアル画像 */
+.hero-kv {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center 20%;
+  width: 100%;
+  height: 100%;
+}
+
+/* KVの上に敷く暗幕（ロゴ・文字の可読性確保） */
+.hero-kv-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 19, 33, 0.55) 0%,
+    rgba(13, 19, 33, 0.15) 40%,
+    rgba(13, 19, 33, 0.35) 75%,
+    rgba(13, 19, 33, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+/* ヘッダーのロゴ画像 */
+.header-logo-img {
+  display: block;
+  height: 48px;
+  width: auto;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ゴースト英字（タイトル背後） */
+.hero-ghost {
+  font-family: var(--font-en);
+  font-size: clamp(6rem, 22vw, 18rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.025);
+  line-height: 0.85;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  animation: ghost-drift 8s ease-in-out infinite alternate;
+}
+
+@keyframes ghost-drift {
+  0%   { letter-spacing: -0.02em; opacity: 0.6; }
+  100% { letter-spacing:  0.02em; opacity: 1; }
+}
+
+.hero-title-block {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title-main {
+  display: block;
+  font-size: clamp(1.6rem, 4.8vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  color: var(--text);
+  text-shadow:
+    0 0 60px rgba(42, 110, 187, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.9);
+  margin-bottom: 24px;
+}
+
+.hero-title-main .line-break { display: block; }
+.hero-title-main .highlight  { color: var(--accent); }
+
+/* タイトルロゴ画像版（透過PNG） */
+.hero-title-logo {
+  text-shadow: none;
+}
+.hero-logo-img {
+  display: block;
+  width: min(680px, 88vw);
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 40px rgba(42, 110, 187, 0.55)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
+}
+
+/* .hero-abbr は削除。ロゴ画像がタイトルを担う */
+
+.hero-subtitle {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 14px;
+  font-weight: 400;
+}
+
+/* スクロール誘導 */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  z-index: 1;
+}
+
+.hero-scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  0%, 100% { opacity: 0.25; transform: scaleY(0.6) translateY(0); }
+  50%       { opacity: 0.9;  transform: scaleY(1)   translateY(6px); }
+}
+
+/* ================================================
+   TOPページ: NEWS
+   斜め境界は維持しつつ、グラデーションで自然に接続
+   ================================================ */
+.news-section {
+  position: relative;
+  /* ヒーローの暗めの底部グラデーションと近い色で繋げる */
+  background: linear-gradient(
+    to bottom,
+    #111827 0%,
+    var(--surface) 12%,
+    var(--surface) 88%,
+    #0f1a2e 100%
+  );
+  padding: 96px 0 80px;
+  clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+  overflow: hidden;
+}
+
+.news-section .section-ghost {
+  top: 24px;
+}
+
+.news-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NEWSリストの区切りは余白だけ。罫線なし */
+.news-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 18px 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  /* border-bottom 廃止 */
+}
+
+.news-date {
+  flex-shrink: 0;
+  font-family: var(--font-en);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+/* ================================================
+   TOPページ: コンテンツ誘導
+   縦ラインを廃止。余白とホバー背景で分離
+   ================================================ */
+.nav-menu-section {
+  position: relative;
+  padding: 100px 0 80px;
+  overflow: hidden;
+}
+
+/* ================================================
+   CONTENTSボタン: 立ち絵共通（3ボタン統一文法）
+   ================================================ */
+
+/* 立ち絵共通: 元画像の縦横比のまま、頭を上端に合わせて表示。
+   下半身はカードの overflow: hidden とマスクで自然に消す */
+.nav-menu-chara {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  width: 52%;
+  max-width: 230px;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.85;
+  transition: opacity 0.35s, transform 0.35s;
+  /* 下方向にフェードして胴から下を溶かす */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 42%,
+    transparent 62%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 42%,
+    transparent 62%
+  );
+}
+
+.nav-menu-item:hover .nav-menu-chara {
+  opacity: 0.92;
+  transform: scale(1.05) translateY(-6px);
+}
+
+/* 立ち絵の上にかぶせる可読性グラデ（テキスト左側を守る）*/
+.nav-menu-item--story,
+.nav-menu-item--character,
+.nav-menu-item--chart {
+  isolation: isolate;
+}
+
+.nav-menu-item--story::after,
+.nav-menu-item--character::after,
+.nav-menu-item--chart::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(13, 19, 33, 1)    0%,
+    rgba(13, 19, 33, 0.90) 35%,
+    rgba(13, 19, 33, 0.55) 60%,
+    rgba(13, 19, 33, 0.30) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.3s;
+}
+
+.nav-menu-item--story:hover::after,
+.nav-menu-item--character:hover::after,
+.nav-menu-item--chart:hover::after {
+  background: linear-gradient(
+    to right,
+    rgba(13, 19, 33, 0.97)  0%,
+    rgba(13, 19, 33, 0.82)  35%,
+    rgba(13, 19, 33, 0.44)  60%,
+    rgba(13, 19, 33, 0.18)  100%
+  );
+}
+
+/* STORY カード: 立ち絵（ごっさん）に統一したためKV背景は廃止 */
+
+/* CHART カード: アンバーノード風グロー（立ち絵の後ろに） */
+.nav-menu-item--chart .nav-menu-chara--chart {
+  filter: drop-shadow(0 0 18px rgba(244, 168, 32, 0.25));
+}
+
+/* 各立ち絵の微調整: STORYはごっさん */
+.nav-menu-chara--story {
+  filter: drop-shadow(0 0 24px rgba(42, 110, 187, 0.40));
+}
+
+/* CHARACTERはルー子 */
+.nav-menu-chara--character {
+  filter: drop-shadow(0 0 24px rgba(42, 110, 187, 0.40));
+}
+
+/* CONTENTSゴーストはデフォルトの0.025のまま・opacityオーバーライドを削除 */
+
+.nav-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.nav-menu-item {
+  display: block;
+  padding: 48px 32px 40px;
+  text-decoration: none;
+  position: relative;
+  transition: background 0.3s;
+  overflow: hidden;
+}
+
+/* 斜めゴールドアクセントライン（左端）
+   イメージ装飾の ::after より前面に出るよう z-index を指定 */
+.nav-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--accent) 40%,
+    var(--accent) 60%,
+    transparent 100%
+  );
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 10;
+}
+
+.nav-menu-item:hover::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.nav-menu-item:hover {
+  background: rgba(244, 168, 32, 0.035);
+  text-decoration: none;
+}
+
+/* ゴーストラベル（各メニューアイテム内）: 極薄に抑える */
+.nav-menu-item-ghost {
+  font-family: var(--font-en);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.022);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+  margin-bottom: -0.5em;
+  /* 横はみ出し防止 */
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* 番号ラベル (01/02/03) */
+.nav-menu-item-no {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* 大英字タイトル */
+.nav-menu-item-en {
+  font-family: var(--font-en);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: 0.05em;
+  color: var(--text);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+  display: block;
+}
+
+.nav-menu-item:hover .nav-menu-item-en {
+  color: var(--accent);
+}
+
+.nav-menu-item-ja {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+}
+
+.nav-menu-item-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  opacity: 0.8;
+}
+
+/* VIEWボタン */
+.nav-menu-item-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  font-family: var(--font-en);
+  font-weight: 400;
+  transition: gap 0.2s;
+}
+
+.nav-menu-item:hover .nav-menu-item-arrow {
+  gap: 10px;
+}
+
+/* ================================================
+   ページタイトルバナー（サブページ共通）
+   ================================================ */
+.page-banner {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0 60px;
+  background:
+    radial-gradient(ellipse 80% 100% at 50% 0%,
+      rgba(42, 110, 187, 0.2) 0%,
+      transparent 70%),
+    var(--bg);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%);
+}
+
+/* kv.png をごく薄くバナー全体に敷く */
+.page-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/kv.png');
+  background-size: cover;
+  background-position: center 30%;
+  /* ネイビーオーバーレイで12〜15%程度の見え方に抑える */
+  opacity: 0.13;
+  pointer-events: none;
+}
+
+/* 斜め細線パターン（kv.png の上に重ねる） */
+.page-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      -52deg,
+      transparent,
+      transparent 36px,
+      rgba(42, 110, 187, 0.05) 36px,
+      rgba(42, 110, 187, 0.05) 38px
+    ),
+    /* 上部・下部をネイビーにフェードして境界を馴染ませる */
+    linear-gradient(
+      to bottom,
+      rgba(13, 19, 33, 0.5) 0%,
+      rgba(13, 19, 33, 0) 35%,
+      rgba(13, 19, 33, 0) 65%,
+      rgba(13, 19, 33, 0.6) 100%
+    );
+  pointer-events: none;
+}
+
+.page-banner-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-banner-ghost {
+  font-family: var(--font-en);
+  font-size: clamp(4rem, 14vw, 10rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  /* 日本語見出しと重なるため透明度を下げる */
+  color: rgba(255, 255, 255, 0.025);
+  line-height: 0.9;
+  pointer-events: none;
+  user-select: none;
+  margin-bottom: -0.35em;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.page-banner-ja {
+  font-family: var(--font-en);
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.page-banner-sub {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+}
+
+/* ================================================
+   STORYページ
+   ================================================ */
+.story-synopsis-section {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+/* kv.png をごく薄く（5〜8%）全体に敷く。
+   iOS Safari で position:fixed が効かないため、絶対配置擬似要素で代替。
+   背景として奥行き感を出す狙い。 */
+.story-synopsis-section::before {
+  content: '';
+  position: absolute;
+  inset: -10% -5%; /* 少し広げてパディング分のはみ出しを防ぐ */
+  background-image: url('../assets/kv.png');
+  background-size: cover;
+  background-position: center 25%;
+  opacity: 0.07;
+  pointer-events: none;
+  /* ネイビーオーバーレイは親の背景色で担保されているので不要 */
+}
+
+/* 上下をネイビーにフェードしてセクション境界を馴染ませる */
+.story-synopsis-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 19, 33, 0.55) 0%,
+    rgba(13, 19, 33, 0)   18%,
+    rgba(13, 19, 33, 0)   82%,
+    rgba(13, 19, 33, 0.55) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.story-synopsis-quote {
+  font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-bottom: 28px;
+}
+
+.story-synopsis-text {
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--text);
+  max-width: 680px;
+}
+
+/* 章リスト: 罫線を廃止し余白と薄背景で区切る */
+.story-chapters {
+  position: relative;
+  padding: 80px 0;
+  background: linear-gradient(
+    to bottom,
+    #0f1a2e 0%,
+    var(--surface) 6%,
+    var(--surface) 94%,
+    #0f1a2e 100%
+  );
+  clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+  overflow: hidden;
+}
+
+.story-chapters-inner {
+  padding-top: 20px;
+}
+
+.chapter-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* chapter-item の罫線を廃止。余白＋ホバー背景で */
+.chapter-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 20px 12px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.chapter-item:hover {
+  background: rgba(244, 168, 32, 0.04);
+}
+
+.chapter-no {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.chapter-title-text {
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.chapter-desc {
+  font-size: 0.88rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+  margin-top: 6px;
+  max-width: 640px;
+}
+
+/* ================================================
+   CHARACTERページ: 縦スクロール1キャラ1画面レイアウト
+   ================================================ */
+
+/* 各キャラのフルスクリーンセクション */
+.chara-scene {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* 顔ならび帯からのアンカージャンプでヘッダーに隠れないように */
+  scroll-margin-top: var(--nav-h);
+}
+
+/* キャラごとの背景色バリエーション（ほんの少しだけ色味をずらす） */
+.chara-scene:nth-child(odd) {
+  background: linear-gradient(
+    135deg,
+    #0D1321 0%,
+    #121a2e 50%,
+    #0D1321 100%
+  );
+}
+.chara-scene:nth-child(even) {
+  background: linear-gradient(
+    135deg,
+    #0D1321 0%,
+    #0f1d30 50%,
+    #0D1321 100%
+  );
+}
+
+/* キャラ固有の微妙なアクセント色（インデックスで少しずつずらす） */
+.chara-scene:nth-child(1) { --chara-accent: rgba(42, 110, 187, 0.12); }
+.chara-scene:nth-child(2) { --chara-accent: rgba(60, 90, 180, 0.10); }
+.chara-scene:nth-child(3) { --chara-accent: rgba(30, 120, 200, 0.11); }
+.chara-scene:nth-child(4) { --chara-accent: rgba(50, 80, 190, 0.10); }
+.chara-scene:nth-child(5) { --chara-accent: rgba(35, 100, 210, 0.12); }
+.chara-scene:nth-child(6) { --chara-accent: rgba(55, 95, 175, 0.09); }
+.chara-scene:nth-child(7) { --chara-accent: rgba(40, 115, 195, 0.11); }
+
+/* 各セクションの背景グロー */
+.chara-scene::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, var(--chara-accent) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* 巨大なゴースト英字（各キャラ背景） */
+.chara-scene-ghost {
+  position: absolute;
+  font-family: var(--font-en);
+  font-size: clamp(8rem, 24vw, 20rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.025);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 横はみ出し: chara-scene の overflow:hidden で制御 */
+}
+
+/* ---- 内側レイアウト ---- */
+.chara-scene-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1200px, 92%);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 100px 0;
+}
+
+/* 奇数: 絵が左・テキストが右 */
+.chara-scene:nth-child(odd)  .chara-scene-inner { flex-direction: row; }
+/* 偶数: 絵が右・テキストが左 */
+.chara-scene:nth-child(even) .chara-scene-inner { flex-direction: row-reverse; }
+
+/* ---- 立ち絵エリア ---- */
+.chara-scene-illust {
+  flex: 0 0 46%;
+  max-width: 46%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  /* スライドイン初期状態 */
+  opacity: 0;
+  transform: translateX(-60px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 偶数（テキスト左・絵右）は逆方向からスライド */
+.chara-scene:nth-child(even) .chara-scene-illust {
+  transform: translateX(60px);
+}
+
+/* 可視化後 */
+.chara-scene.is-visible .chara-scene-illust {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 実画像
+   差し替え手順: .chara-scene-placeholder を削除し、
+   <img src="assets/chara_NN.png" alt="キャラ名" class="chara-scene-img"> を追加 */
+.chara-scene-img {
+  display: block;
+  width: 100%;
+  max-height: 88vh;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 0 60px rgba(42, 110, 187, 0.3));
+}
+
+/* プレースホルダー（背景透過PNG未配置時） */
+.chara-scene-placeholder {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 88vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 人型シルエット（インラインSVG不使用・CSS only） */
+.chara-scene-placeholder::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54%;
+  height: 90%;
+  background: linear-gradient(
+    170deg,
+    rgba(42, 110, 187, 0.18) 0%,
+    rgba(42, 110, 187, 0.06) 100%
+  );
+  clip-path: polygon(
+    50% 0%,
+    62% 8%,
+    70% 18%,
+    72% 32%,
+    66% 40%,
+    74% 44%,
+    84% 60%,
+    80% 100%,
+    20% 100%,
+    16% 60%,
+    26% 44%,
+    34% 40%,
+    28% 32%,
+    30% 18%,
+    38% 8%
+  );
+}
+
+.chara-scene-placeholder-label {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+  font-size: 0.6rem;
+  font-family: var(--font-en);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.18);
+  text-align: center;
+}
+
+/* ---- テキストエリア ---- */
+.chara-scene-text {
+  flex: 0 0 54%;
+  max-width: 54%;
+  padding: 0 clamp(24px, 4vw, 64px);
+  /* 名前は絵より少し遅れて出る */
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.18s,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.18s;
+}
+
+.chara-scene.is-visible .chara-scene-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* キャラ番号 */
+.chara-scene-no {
+  font-family: var(--font-en);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* キャラ名（大きく） */
+.chara-scene-name {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  min-height: 1.2em;
+}
+
+.chara-scene-role {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 28px;
+  display: block;
+}
+
+.chara-scene-intro {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  max-width: 440px;
+}
+
+/* ================================================
+   CHARTページ
+   ================================================ */
+.chart-section {
+  position: relative;
+  padding: 80px 0 100px;
+  overflow: hidden;
+}
+
+.chart-placeholder {
+  padding: 80px 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  position: relative;
+}
+
+/* ================================================
+   レスポンシブ
+   ================================================ */
+@media (max-width: 900px) {
+  .nav-menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-menu-item {
+    padding: 36px 24px;
+  }
+
+  /* スマホでのCONTENTSゴーストは横はみ出し完全防止 */
+  .nav-menu-item-ghost {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+  }
+
+  /* スマホ: グリッドは縦1列。上の余白は維持 */
+  .nav-menu-grid {
+    padding-top: 48px;
+  }
+
+  /* スマホ: 立ち絵を縮小して本文を圧迫しない（縦横比は自然のまま） */
+  .nav-menu-chara {
+    width: 38%;
+    max-width: 150px;
+    right: 0;
+    height: auto;
+    opacity: 0.6;
+  }
+
+  /* 顔帯: スマホでは横スクロール */
+  .face-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .face-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* フッターナビ: スマホでは小さめに */
+  .footer-nav a {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+  }
+
+  /* キャラシーン: 縦積み */
+  .chara-scene-inner {
+    flex-direction: column !important;
+    padding: 80px 0;
+    gap: 32px;
+  }
+
+  .chara-scene-illust {
+    flex: 0 0 auto;
+    max-width: 72%;
+    width: 72%;
+    /* スマホ時は縦方向からスライド */
+    transform: translateY(-40px) !important;
+  }
+
+  .chara-scene.is-visible .chara-scene-illust {
+    transform: translateY(0) !important;
+  }
+
+  .chara-scene-text {
+    flex: 0 0 auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .chara-scene-intro {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-h: 56px; }
+
+  .nav-toggle { display: flex; }
+
+  .site-nav {
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    background: rgba(13, 19, 33, 0.97);
+    padding: 12px 0;
+    /* スマホメニューの下ボーダーも廃止 */
+    display: none;
+  }
+
+  .site-nav.is-open { display: block; }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .site-nav a {
+    padding: 12px 24px;
+  }
+
+  .site-nav a[aria-current="page"]::after {
+    display: none;
+  }
+
+  /* スマホ: 縦構図KV（9:16）を全画面で使い、下部の暗い余白にロゴを置く */
+  .hero {
+    height: 100svh;
+    min-height: 560px;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* padding-bottom を縮小し、SCROLLヒントは非表示にするので余白は56pxで十分 */
+    padding: 0 0 56px;
+  }
+
+  /* スマホではSCROLLヒントをロゴと重ならないよう非表示 */
+  .hero-scroll-hint {
+    display: none;
+  }
+
+  .hero-kv {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* 縦版KVは下部に暗い余白があるため暗幕は最小限に */
+  .hero-kv-shade {
+    display: block;
+    background: linear-gradient(
+      to bottom,
+      rgba(13, 19, 33, 0.3) 0%,
+      rgba(13, 19, 33, 0) 30%,
+      rgba(13, 19, 33, 0.1) 60%,
+      rgba(13, 19, 33, 0.7) 100%
+    );
+  }
+
+  .hero-ghost { display: none; }
+
+  .hero-title-main {
+    font-size: clamp(1.3rem, 6vw, 2rem);
+  }
+
+  .news-section {
+    clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0 100%);
+  }
+
+  .page-banner {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%);
+    padding: 80px 0 48px;
+  }
+
+  .story-chapters {
+    clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .chara-scene-illust {
+    max-width: 90%;
+    width: 90%;
+  }
+
+  /* 顔帯: 390px以下はグリッド3列に縮小 */
+  .face-strip {
+    grid-template-columns: repeat(4, 72px);
+    gap: 10px;
+  }
+
+  .face-circle {
+    width: 72px;
+    height: 72px;
+  }
+
+  /* フッター clip-path をスマホ向けに浅く */
+  .site-footer {
+    clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 100%);
+    padding-top: 36px;
+  }
+}
+
+/* 390px以下: 顔帯を4列キープしつつ余白詰め */
+@media (max-width: 390px) {
+  .face-strip {
+    grid-template-columns: repeat(4, 64px);
+    gap: 8px;
+  }
+
+  .face-circle {
+    width: 64px;
+    height: 64px;
+  }
+
+  .face-name {
+    font-size: 0.6rem;
+  }
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHARACTER — スロ幹</title>
+  <meta name="description" content="Discord連載小説「スロ幹」の公式ファンサイト。あらすじ・キャラクター・人物相関図を公開。">
+
+  <!-- OGP / Twitter Card -->
+  <meta property="og:title" content="CHARACTER — スロ幹">
+  <meta property="og:description" content="Discord連載小説「スロ幹」の公式ファンサイト。あらすじ・キャラクター・人物相関図を公開。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://hisamaru13.github.io/surokan-site/assets/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://hisamaru13.github.io/surokan-site/assets/ogp.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo">
+        <img src="assets/logo.png" alt="スロ幹" class="header-logo-img">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="story.html">STORY</a></li>
+          <li><a href="character.html" aria-current="page">CHARACTER</a></li>
+          <li><a href="chart.html">CHART</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ページタイトルバナー -->
+    <div class="page-banner">
+      <div class="container page-banner-inner">
+        <p class="page-banner-ghost" aria-hidden="true">CHARACTER</p>
+        <h1 class="page-banner-ja">登場人物</h1>
+        <p class="page-banner-sub">DISCORD SERIAL NOVEL</p>
+      </div>
+    </div>
+
+    <!-- ======================================================
+         キャラクターシーン（1キャラ = 1セクション・縦スクロール）
+
+         立ち絵の差し替え手順:
+           1. .chara-scene-placeholder と .chara-scene-placeholder-label を丸ごと削除
+           2. 同じ場所に以下を追加（NN は 01〜07）:
+              <img src="assets/chara_NN.png" alt="キャラクター名" class="chara-scene-img">
+           3. 透過PNGが背景に溶け込むので追加加工は不要
+
+         ゴースト文字はキャラ名ローマ字（確定後に差し替え）
+    ====================================================== -->
+
+    <!-- キャラクター 01 (assets/chara_01.png) -->
+    <section class="chara-scene" id="chara-01">
+      <span class="chara-scene-ghost" aria-hidden="true">GOSSAN</span>
+      <div class="chara-scene-inner">
+        <div class="chara-scene-illust">
+          <img src="assets/chara_01.png" alt="ごっさん" class="chara-scene-img">
+        </div>
+        <div class="chara-scene-text">
+          <span class="chara-scene-no">CHARACTER 01</span>
+          <p class="chara-scene-name">ごっさん</p>
+          <span class="chara-scene-role">DISCORD MINISTER</span>
+          <p class="chara-scene-intro">本作の主人公にして語り手。スローライフを求めて「てきとうに」に入ったSEが、気づけば大型連盟Ajeの幹部としてDiscord運営を担うまでになっていた。自虐的なユーモアと誠実な調整力で、本部と支部の橋渡し役として奮走する。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- キャラクター 02 (assets/chara_02.png) -->
+    <section class="chara-scene" id="chara-02">
+      <span class="chara-scene-ghost" aria-hidden="true">REI</span>
+      <div class="chara-scene-inner">
+        <div class="chara-scene-illust">
+          <img src="assets/chara_02.png" alt="レイ" class="chara-scene-img">
+        </div>
+        <div class="chara-scene-text">
+          <span class="chara-scene-no">CHARACTER 02</span>
+          <p class="chara-scene-name">レイ</p>
+          <span class="chara-scene-role">ACE &amp; STRATEGIST</span>
+          <p class="chara-scene-intro">連盟最大戦力を誇る男。ドラム歴10年以上のリズム感と同種のリーダーシップで、シーズン1の作戦指揮を事実上牽引した。ごっさんが「友達と呼べる存在」と記すほどの関係を築いた盟友でもある。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- キャラクター 03 (assets/chara_03.png) -->
+    <section class="chara-scene" id="chara-03">
+      <span class="chara-scene-ghost" aria-hidden="true">BISHU</span>
+      <div class="chara-scene-inner">
+        <div class="chara-scene-illust">
+          <img src="assets/chara_03.png" alt="びしゅ" class="chara-scene-img">
+        </div>
+        <div class="chara-scene-text">
+          <span class="chara-scene-no">CHARACTER 03</span>
+          <p class="chara-scene-name">びしゅ</p>
+          <span class="chara-scene-role">GUILD MASTER</span>
+          <p class="chara-scene-intro">Aje本部の盟主。個人戦力で鯖内20位以内に入りながら、統率・外交・知力のいずれにも穴がないミスターパーフェクト。ごっさんが「信頼できる人物だと直感した」と記すほど、相談を預けられる存在として機能した。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- キャラクター 04 (assets/chara_04.png) -->
+    <section class="chara-scene" id="chara-04">
+      <span class="chara-scene-ghost" aria-hidden="true">RUKO</span>
+      <div class="chara-scene-inner">
+        <div class="chara-scene-illust">
+          <img src="assets/chara_04.png" alt="ルー子" class="chara-scene-img">
+        </div>
+        <div class="chara-scene-text">
+          <span class="chara-scene-no">CHARACTER 04</span>
+          <p class="chara-scene-name">ルー子</p>
+          <span class="chara-scene-role">RIVAL &amp; OFFICER</span>
+          <p class="chara-scene-intro">Aje本部の幹部で、ごっさんと火力・プレイスタイルがほぼ同等のライバル。感情表現が豊かで直情的な性格を持ち、シーズン1の最終局面ではごっさんと同時に降伏宣言を行うほどの連携を見せた。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- キャラクター 05 (assets/chara_05.png) -->
+    <section class="chara-scene" id="chara-05">
+      <span class="chara-scene-ghost" aria-hidden="true">MIWA</span>
+      <div class="chara-scene-inner">
+        <div class="chara-scene-illust">
+          <img src="assets/chara_05.png" alt="三和" class="chara-scene-img">
+        </div>
+        <div class="chara-scene-text">
+          <span class="chara-scene-no">CHARACTER 05</span>
+          <p class="chara-scene-name">三和</p>
+          <span class="chara-scene-role">TOP 10 PLAYER</span>
+          <p class="chara-scene-intro">鯖内でも有名な個人戦力10位以内のプレイヤー。一度はプレッシャーで幹部を離れた過去を持ちながら、シーズン1では再び幹部志願して指揮の中核を担った。三和が動揺したとき、ごっさんが「なんてこった」と感じたほど、その存在感は大きい。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- キャラクター 06 (assets/chara_06.png) -->
+    <section class="chara-scene" id="chara-06">
+      <span class="chara-scene-ghost" aria-hidden="true">DELI</span>
+      <div class="chara-scene-inner">
+        <div class="chara-scene-illust">
+          <img src="assets/chara_06.png" alt="デリ" class="chara-scene-img">
+        </div>
+        <div class="chara-scene-text">
+          <span class="chara-scene-no">CHARACTER 06</span>
+          <p class="chara-scene-name">デリ</p>
+          <span class="chara-scene-role">FOUNDING MEMBER</span>
+          <p class="chara-scene-intro">「てきとうに」から続く連盟最古参の一人。Aze支部の柱として仲間から頼りにされた高火力プレイヤーで、理由を告げることなくひっそりと去った。その脱退はレイを「なぜ相談してくれなかった」と狼狽させ、ごっさんにも深く刻まれた。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- キャラクター 07 (assets/chara_07.png) -->
+    <section class="chara-scene" id="chara-07">
+      <span class="chara-scene-ghost" aria-hidden="true">HANARIRI</span>
+      <div class="chara-scene-inner">
+        <div class="chara-scene-illust">
+          <img src="assets/chara_07.png" alt="花りり" class="chara-scene-img">
+        </div>
+        <div class="chara-scene-text">
+          <span class="chara-scene-no">CHARACTER 07</span>
+          <p class="chara-scene-name">花りり</p>
+          <span class="chara-scene-role">HEALER OF THE SQUAD</span>
+          <p class="chara-scene-intro">Aze支部の古参幹部で、連盟内の癒し担当。ごっさんが「絶対実物かわいい」と記したほどの存在感を持ちながら、ある日ひっそりと姿を消した。その脱退はごっさんに言いしれぬ不安感を残した。</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; スロ幹製作委員会</p>
+    </div>
+  </footer>
+
+  <script>
+    // ハンバーガーメニュー
+    const toggle = document.getElementById('navToggle');
+    const nav    = document.getElementById('siteNav');
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // キャラシーン スクロール登場アニメーション
+    // .chara-scene が画面に入ったら .is-visible を付与
+    // CSS 側で illust と text に別々の transition-delay が設定されている
+    const scenes = document.querySelectorAll('.chara-scene');
+    if ('IntersectionObserver' in window) {
+      const sceneObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            sceneObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15   // 画面の15%入ったら発火
+      });
+      scenes.forEach(el => sceneObserver.observe(el));
+    } else {
+      // IntersectionObserver 非対応フォールバック
+      scenes.forEach(el => el.classList.add('is-visible'));
+    }
+  </script>
+
+</body>
+</html>
